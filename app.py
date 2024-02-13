@@ -15,10 +15,11 @@ app.config['CORS_ALLOW_HEADERS'] = 'Content-Type'
 
 # app.config.from_envvar('ENV_FILE_LOCATION')
 # Use environment variables for configuration
-app.config['JWT_SECRET_KEY'] = os.environ.get('JWT_SECRET_KEY')
+app.config['JWT_SECRET_KEY'] = os.environ['JWT_SECRET_KEY']
 app.config['MONGODB_SETTINGS'] = {
-    'host': os.environ.get('MONGODB_HOST')
+    'host': os.environ['MONGODB_HOST']
 }
+
 
 api = Api(app, errors=errors)
 bcrypt = Bcrypt(app)
