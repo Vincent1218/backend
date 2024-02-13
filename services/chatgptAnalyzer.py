@@ -52,8 +52,20 @@ Here is the note you need to evaluate:
 
 model = ""
 dimensions = ["advancement", "diversity", "grounding", "integration"]
-miro_model = ["ft:gpt-3.5-turbo-1106:personal::8Pup1gFD", "ft:gpt-3.5-turbo-0613:personal::8GVMf2Ro", "ft:gpt-3.5-turbo-0613:personal::8GXMriL2", "ft:gpt-3.5-turbo-1106:personal::8K18Y2ny"]
-essay_model = ["ft:gpt-3.5-turbo-0613:personal::8EWHfPCF", "ft:gpt-3.5-turbo-0613:personal::8KRhSwLi", "ft:gpt-3.5-turbo-0613:personal::8KdPJAzW", "ft:gpt-3.5-turbo-1106:personal::8K18Y2ny"]
+
+# Eassay
+# diversity: ft:gpt-3.5-turbo-0613:personal::8UqC0hwO
+# grounding: ft:gpt-3.5-turbo-0613:personal::8o60uASL
+# advancement: ft:gpt-3.5-turbo-0613:personal::8PkZY6cZ
+# integration: ft:gpt-3.5-turbo-0613:personal::8UYF7vHp
+essay_model = ["ft:gpt-3.5-turbo-0613:personal::8PkZY6cZ", "ft:gpt-3.5-turbo-0613:personal::8UqC0hwO", "ft:gpt-3.5-turbo-0613:personal::8o60uASL", "ft:gpt-3.5-turbo-0613:personal::8UYF7vHp"]
+
+# Miro
+# diversity: ft:gpt-3.5-turbo-1106:personal::8UxLZ4Cy
+# grounding: ft:gpt-3.5-turbo-0613:personal::8GXMriL2
+# advancement: ft:gpt-3.5-turbo-1106:personal::8Pup1gFD
+# integration: ft:gpt-3.5-turbo-1106:personal::8K18Y2ny
+miro_model = ["ft:gpt-3.5-turbo-1106:personal::8Pup1gFD", "ft:gpt-3.5-turbo-1106:personal::8UxLZ4Cy", "ft:gpt-3.5-turbo-0613:personal::8GXMriL2", "ft:gpt-3.5-turbo-1106:personal::8K18Y2ny"]
 
 def evaluate_annotation(context, dimensions, data_type):
     
