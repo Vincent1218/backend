@@ -95,8 +95,8 @@ def evaluate_annotation(context, dimensions, data_type):
 
 
     response = client.chat.completions.create(
-        model = "ft:gpt-3.5-turbo-1106:personal::8PwIJq90",
-        # model = model,
+        # model = "ft:gpt-3.5-turbo-1106:personal::8PwIJq90",
+        model = model,
         messages = context,
         max_tokens = 1,
         temperature = 0)
