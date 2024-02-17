@@ -126,6 +126,7 @@ def evaluate_row(row, data_type):
       if res.isdigit():
         score.update({dimension: int(res)})
       else:
+        print("Error: Invalid response from GPT-3.5 API.")
         score.update({dimension: 0})
 
     print("score:", score)
