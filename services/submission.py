@@ -204,14 +204,17 @@ class SubmissionsApi(Resource):
                     final_text += text
                     
                 # Split by paragraphs
-                paragraphs = final_text.split("\n \n")
-                
+                paragraphs = final_text.split("\n \n")              
                 # Remove \n
                 for i in range(len(paragraphs)):
                     paragraphs[i] = paragraphs[i].replace("\n", "")
                     
                 # Remove empty paragraphs
                 paragraphs = [x for x in paragraphs if x != '']
+                
+                print("Paragraph length")
+                print(len(paragraphs))
+                print(paragraphs)  
                 
                 # Join paragraphs
                 final_text = "\n\n".join(paragraphs)
