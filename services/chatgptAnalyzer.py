@@ -57,7 +57,7 @@ Here is the note you need to evaluate:
 model = ""
 dimensions = ["advancement", "diversity", "grounding", "integration"]
 
-# Eassay
+# Essay
 # diversity: ft:gpt-3.5-turbo-0613:personal::8UqC0hwO
 # grounding: ft:gpt-3.5-turbo-0613:personal::8o60uASL
 # advancement: ft:gpt-3.5-turbo-0613:personal::8PkZY6cZ
@@ -72,8 +72,6 @@ essay_model = ["ft:gpt-3.5-turbo-0613:personal::8PkZY6cZ", "ft:gpt-3.5-turbo-061
 miro_model = ["ft:gpt-3.5-turbo-1106:personal::8Pup1gFD", "ft:gpt-3.5-turbo-1106:personal::8UxLZ4Cy", "ft:gpt-3.5-turbo-0613:personal::8GXMriL2", "ft:gpt-3.5-turbo-1106:personal::8K18Y2ny"]
 
 def evaluate_annotation(context, dimensions, data_type):
-    
-    
     # Get model
     if data_type == "miro":
         model = miro_model
@@ -95,8 +93,8 @@ def evaluate_annotation(context, dimensions, data_type):
         return "Error: Invalid dimension"
 
 
+    print("model:", model)
     response = client.chat.completions.create(
-        # model = "ft:gpt-3.5-turbo-1106:personal::8PwIJq90",
         model = model,
         messages = context,
         max_tokens = 1,
@@ -123,7 +121,12 @@ def evaluate_row(row, data_type):
 
     # change name
     for dimension in dimensions:
-      score.update({dimension: int(evaluate_annotation(context, dimension, data_type))})
+      res = evaluate_annotation(context, dimension, data_type)
+      # check if res is a number
+      if res.isdigit():
+        score.update({dimension: int(res)})
+      else:
+        score.update({dimension: 0})
 
     print("score:", score)
 
