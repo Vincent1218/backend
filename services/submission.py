@@ -253,6 +253,7 @@ class SubmissionsApi(Resource):
             # evaluate each paragraph
             chatgpt_results = []
             for paragraph in paragraphs_content:
+                print("Para: ", paragraph)
                 chatgpt_results.append(evaluate_row(paragraph, "essay"))
 
             overall_results = {
