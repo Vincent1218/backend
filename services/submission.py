@@ -250,6 +250,8 @@ class SubmissionsApi(Resource):
             # remove empty paragraphs
             paragraphs_content = [x for x in paragraphs_content if ((x != '') and (x != ' ') and (x != '\n'))]
 
+            eval_para_count = 0
+            
             # evaluate each paragraph
             chatgpt_results = []
             for paragraph in paragraphs_content:
@@ -264,6 +266,9 @@ class SubmissionsApi(Resource):
                     })
                 else:
                     chatgpt_results.append(evaluate_row(paragraph, "essay"))
+                    eval_para_count += 1
+                    
+            print("Evaluated Paragraphs: ", eval_para_count)
 
             overall_results = {
                 "advancement": 0,
