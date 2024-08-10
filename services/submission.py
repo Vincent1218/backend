@@ -255,7 +255,7 @@ class SubmissionsApi(Resource):
             for paragraph in paragraphs_content:
                 print("Para: ", paragraph)
                 # if paragraph length is less, eg(Title, Name, etc)
-                if len(paragraph) < 50:
+                if len(paragraph) < 100:
                     chatgpt_results.append({
                         "advancement": 0,
                         "diversity": 0,
