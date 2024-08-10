@@ -246,7 +246,7 @@ class SubmissionsApi(Resource):
 
             # split paragraphs
             paragraphs_content = body['content'].split("\n")
-
+            
             # remove empty paragraphs
             paragraphs_content = [x for x in paragraphs_content if ((x != '') and (x != ' ') and (x != '\n'))]
 
@@ -254,7 +254,16 @@ class SubmissionsApi(Resource):
             chatgpt_results = []
             for paragraph in paragraphs_content:
                 print("Para: ", paragraph)
-                chatgpt_results.append(evaluate_row(paragraph, "essay"))
+                # if paragraph length is less, eg(Title, Name, etc)
+                if len(paragraph) < 50:
+                    chatgpt_results.append({
+                        "advancement": 0,
+                        "diversity": 0,
+                        "grounding": 0,
+                        "integration": 0,
+                    })
+                else:
+                    chatgpt_results.append(evaluate_row(paragraph, "essay"))
 
             overall_results = {
                 "advancement": 0,
