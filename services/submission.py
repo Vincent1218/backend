@@ -248,7 +248,7 @@ class SubmissionsApi(Resource):
             paragraphs_content = body['content'].split("\n")
 
             # remove empty paragraphs
-            paragraphs_content = [x for x in paragraphs_content if x != '']
+            paragraphs_content = [x for x in paragraphs_content if ((x != '') and (x != ' ') and (x != '\n'))]
 
             # evaluate each paragraph
             chatgpt_results = []
