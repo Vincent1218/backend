@@ -267,8 +267,9 @@ class SubmissionsApi(Resource):
                 else:
                     chatgpt_results.append(evaluate_row(paragraph, "essay"))
                     eval_para_count += 1
+                print("Evaluated Paragraphs: ", eval_para_count)
                     
-            print("Evaluated Paragraphs: ", eval_para_count)
+            
 
             overall_results = {
                 "advancement": 0,
