@@ -283,10 +283,10 @@ class SubmissionsApi(Resource):
                 overall_results["grounding"] += result["grounding"]
                 overall_results["integration"] += result["integration"]
 
-            overall_results["advancement"] = overall_results["advancement"] / len(chatgpt_results)
-            overall_results["diversity"] = overall_results["diversity"] / len(chatgpt_results)
-            overall_results["grounding"] = overall_results["grounding"] / len(chatgpt_results)
-            overall_results["integration"] = overall_results["integration"] / len(chatgpt_results)
+            overall_results["advancement"] = overall_results["advancement"] / eval_para_count
+            overall_results["diversity"] = overall_results["diversity"] / eval_para_count
+            overall_results["grounding"] = overall_results["grounding"] / eval_para_count
+            overall_results["integration"] = overall_results["integration"] / eval_para_count
 
             # combine body and chatgpt_results
             body['score'] = overall_results
