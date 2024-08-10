@@ -269,6 +269,9 @@ class SubmissionsApi(Resource):
                     eval_para_count += 1
                     print("Evaluated Paragraphs: ", eval_para_count)
                     
+                if eval_para_count > 25:
+                    break
+                    
             
 
             overall_results = {
