@@ -257,7 +257,7 @@ class SubmissionsApi(Resource):
             for paragraph in paragraphs_content:
                 print("Para: ", paragraph)
                 # if paragraph length is less, eg(Title, Name, etc)
-                if len(paragraph) < 100:
+                if len(paragraph) < 100 or eval_para_count > 25:
                     chatgpt_results.append({
                         "advancement": 0,
                         "diversity": 0,
@@ -268,10 +268,6 @@ class SubmissionsApi(Resource):
                     chatgpt_results.append(evaluate_row(paragraph, "essay"))
                     eval_para_count += 1
                     print("Evaluated Paragraphs: ", eval_para_count)
-                    
-                if eval_para_count > 25:
-                    break
-                    
             
 
             overall_results = {
